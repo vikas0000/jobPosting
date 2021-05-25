@@ -1,26 +1,32 @@
 const User = require('../models/user');
 
-// module.exports.profile = function(req, res){
+module.exports.profile = function(req, res){
     
-//     User.findById(req.params.id, function(err, user) {
-//         return res.render('user_profile', {
-//             title: "User Profile",
-//             profile_user: user
-//         });
-//     });
+    User.findById(req.params.id, function(err, user) {
+        return res.render('user_profile', {
+            title: "User Profile",
+            profile_user: user
+        });
+    });
     
-// }
+}
 
 
-module.exports.signUp = function(req, res){
-    return res.render('user_sign_up',{
-        title: "Sign Up"
+module.exports.signIn = function(req, res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+    return res.render('user_sign_in', {
+        title: "Sign In"
     });
 }
 
-module.exports.signIn = function(req, res){
-    return res.render('user_sign_in',{
-        title: "Sign In"
+module.exports.signUp = function(req, res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+    return res.render('user_sign_up', {
+        title: "Sign Up"
     });
 }
 

@@ -1,3 +1,26 @@
-<header>
-    page footer
-</header>
+<footer>
+    <div id="page-footer">
+        <div id="footer" style="color: white; font-size: 25px; margin: 10px;">
+            Codeial
+        </div>
+        <div>
+            <ul id="horizontal-list">
+                <% if(locals.user){%>
+        
+                   
+                    <li>
+                        <a href="/"> Home</a>
+                    </li>
+                    <li>
+                        <a href="/users/profile/<%= user.id %>"> User Profile</a>
+                    </li>
+                <%} else {%>
+                    <p>
+                        CopyRight 
+                    </p>
+                   
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</footer>
