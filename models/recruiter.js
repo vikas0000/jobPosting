@@ -21,5 +21,5 @@ const recruiterSchema = new mongoose.Schema({
 
 
 
-const Recruiter = mongoose.model('User', recruiterSchema);
+const Recruiter = mongoose.model('Recruiter', recruiterSchema);
 module.exports = Recruiter;

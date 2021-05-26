@@ -1,7 +1,7 @@
 <header>
     <div id="header-nav">
         <div>
-            <p>Codeial</p>
+            <p>Job Posting</p>
         </div>
         <div>
             <ul id="horizontal-list">
@@ -15,12 +15,30 @@
                         <a href="/users/sign-out"> Sign Out</a>
                     </li>
                 <%} else {%>
-                    <li>
-                        <a href="/users/sign-in"> Sign In</a>
-                    </li>
-                    <li>
-                        <a href="/users/sign-up"> Sign Up</a>
-                    </li>
+                    <% if(locals.recruiter){%>
+
+                        <li>
+                            <a href="/recruiters/profile/<%= recruiter.id %>"><%= user.name%></a>
+            
+                        </li>
+                        <li>
+                            <a href="/recruiters/sign-out"> Sign Out</a>
+                        </li>
+                    <% } else {%>
+                        
+                        <li>
+                            <a href="/recruiters/sign-in"> Recruiter login</a>
+                        </li>
+                        <li>
+                            <a href="/recruiters/sign-up"> Recruiter Sign up</a>
+                        </li>
+                        <li>
+                            <a href="/users/sign-in"> User login</a>
+                        </li>
+                        <li>
+                            <a href="/users/sign-up"> User Sign up</a>
+                        </li>
+                        <% } %>
                 <% } %>
             </ul>
         </div>

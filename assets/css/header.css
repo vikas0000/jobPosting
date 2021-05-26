@@ -1,0 +1,26 @@
+#header-nav {
+  height: 10vh;
+  width: 100%;
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  #header-nav p {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px; }
+
+#horizontal-list {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-size: 15px;
+  list-style-type: none;
+  justify-content: space-between;
+  margin: 15px; }
+  #horizontal-list a {
+    color: white;
+    text-decoration: none; }

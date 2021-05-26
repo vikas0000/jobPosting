@@ -1,3 +1,35 @@
+<link rel="stylesheet" href="/css/home.css">
 
-<h1>Home</h1>
+<div id="home-container">
+    <section id="feed-posts">
+            <h4>Latest Jobs</h4>
+            <% if(locals.recruiter){ %>
+            <form action="/posts/create" id="new-post-form" method="POST">
+                <input type="text" name="jobTitle" placeholder="Job Title" required>
+                <input type="text" name="skillSet" placeholder="Skill Sets" required>
+                <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
+                <input type="submit" value="RecruiterPost">
+            </form>
+            <% } %>
         
+            <div id="posts-list-container">
+                <ul>
+                    <% for(post of posts){ %>
+                        
+                    <%- include('_recruiter_post') -%>
+                        
+                    <%} %>
+                </ul>
+            </div>
+        </section>
+        
+        
+        <!-- <section id="user-friends">
+            <h4>Friends</h4>
+            <% for(u of all_users){%>
+                <p>
+                    <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+                </p>
+            <% } %>
+        </section> -->
+</div>

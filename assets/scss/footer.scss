@@ -1,0 +1,31 @@
+#page-footer{
+    height: 10vh;
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p{
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        margin: 5px;
+        
+    }
+    
+}
+
+#horizontal-list{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-size: 15px;
+    list-style-type: none;
+    justify-content: space-between;
+    margin: 15px;
+    a{
+        color: white;
+        text-decoration: none;
+    }
+}

@@ -1,40 +1,40 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local');
-const User = require('../models/user');
+const Recruiter = require('../models/recruiter');
 
 passport.use(new LocalStrategy({
         usernameField: 'email',
         passReqToCallback: true
     },
     function(req, email, password, done){
-        User.findOne({email:email}, function(err, user){
+        Recruiter.findOne({email:email}, function(err, recruiter){
             if(err){
                 // req.flash('error', err);
                 console.log('error in finding user');
                 return done(err);
             }
-            if(!user || user.password != password){
+            if(!recruiter || recruiter.password != password){
                 // req.flash('error', 'Invalid username/password');
                 console.log('Invalid username/password');
                 return done(null, false);
             }
-            return done(null, user);
+            return done(null, recruiter);
         });
     }
 
 ));
 
-passport.serializeUser(function(user, done){
-    done(null, user.id);
+passport.serializeUser(function(recruiter, done){
+    done(null, recruiter.id);
 });
 
 passport.deserializeUser(function(id, done){
-    User.findById(id, function(err, user){
+    Recruiter.findById(id, function(err, recruiter){
         if(err){
             console.log('error in finding user');
             return done(err);
         }
-        return done(null, user);
+        return done(null, recruiter);
     });
 });
 
@@ -46,7 +46,7 @@ passport.checkAuthentication = function(req, res, next){
 }
 passport.setAuthenticatedUser = function(req, res, next){
     if(req.isAuthenticated()){
-       res.locals.user = req.user;
+       res.locals.recruiter = req.recruiter;
     }
     next();
 }
